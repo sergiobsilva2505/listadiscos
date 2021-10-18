@@ -1,7 +1,7 @@
 
 class Disco {
 
-    construtor(artista, titulo, dataLancamento, gravadora) {
+    constructor(artista, titulo, dataLancamento, gravadora) {
         this._artista = artista;
         this._titulo = titulo;
         this._dataLancamento = dataLancamento;
@@ -9,19 +9,19 @@ class Disco {
     }
 
     get artista() {
-        return this.artista;
+        return this._artista;
     }
 
     get titulo() {
-        return this.titulo;
+        return this._titulo;
     }
 
     get dataLancamento() {
-        return this.dataLancamento;
+        return this._dataLancamento;
     }
 
     get gravadora() {
-        return this.gravadora;
+        return this._gravadora;
     }
 
 
