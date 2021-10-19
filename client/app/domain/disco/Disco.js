@@ -1,11 +1,10 @@
 
 class Disco {
 
-    constructor(artista, titulo, dataLancamento, gravadora) {
-        this._artista = artista;
-        this._titulo = titulo;
-        this._dataLancamento = dataLancamento;
-        this._gravadora = gravadora;
+    constructor(_artista, _titulo, _dataLancamento, _gravadora) {
+        Object.assign(this, { _artista, _titulo, _gravadora });
+        this._dataLancamento = new Date(_dataLancamento.getTime());
+        Object.freeze(this);
     }
 
     get artista() {
