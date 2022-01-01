@@ -4,23 +4,33 @@ class AlbumController {
     constructor() {
 
         let $ = document.querySelector.bind(document);
-        this._artist = $('#artist');
-        this._albumTitle = $('#albumTitle');
-        this._releaseDateOf = $('#releaseDateOf');
-        this._recordCompany = $('#recordCompany');
+        this._inputArtist = $('#artist');
+        this._inputAlbumTitle = $('#albumTitle');
+        this._inputReleaseDateOf = $('#releaseDateOf');
+        this._inputRecordCompany = $('#recordCompany');
+        this._listAlbuns = new ListAlbuns();
     }
 
     add(event) {
         event.preventDefault();
 
-        let album = new Album(
-            this._artist.value,
-            this._albumTitle.value,
-            DateHelper.textForDate(this._releaseDateOf.value),
-            this._recordCompany.value
-        );
+        this._listAlbuns.add(this._createAlbum());
+        this._clearForm();
+        console.log(this._listAlbuns)
+    }
 
-        console.log(album);
-        console.log(DateHelper.dateForText(album.releaseDateOf))
+    _createAlbum() {
+        return new Album(
+            this._inputArtist.value,
+            this._inputAlbumTitle.value,
+            DateHelper.textForDate(this._inputReleaseDateOf.value),
+            this._inputRecordCompany.value);
+    }
+
+    _clearForm() {
+        this._inputArtist.value = '';
+        this._inputAlbumTitle.value = '';
+        this._inputReleaseDateOf.value = '';
+        this._inputRecordCompany.value = '';
     }
 }
