@@ -9,14 +9,18 @@ class AlbumController {
         this._inputReleaseDateOf = $('#releaseDateOf');
         this._inputRecordCompany = $('#recordCompany');
         this._listAlbuns = new ListAlbuns();
+        this._listAlbunsView = new ListAlbunsView($('#listAlbuns'));
+        this._listAlbunsView.update(this._listAlbuns);
+
     }
 
     add(event) {
         event.preventDefault();
 
         this._listAlbuns.add(this._createAlbum());
+        this._listAlbunsView.update(this._listAlbuns);
+
         this._clearForm();
-        console.log(this._listAlbuns)
     }
 
     _createAlbum() {
